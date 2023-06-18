@@ -1,4 +1,4 @@
 # CLI based File Editor
 
 
--- Made with ❤️ in Pure Rust
+Made with ❤️ in Pure Rust
