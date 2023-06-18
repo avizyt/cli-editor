@@ -19,6 +19,24 @@ fn main() {
     };
 
     loop {
-        
+        print!("> ");
+        io::stdout().flush().unwrap();
+
+        let mut input = String::new();
+        io::stdin().read_line(&mut input).unwrap();
+        let input = input.trim();
+
+        match input {
+            "q" => break,
+            "p" => editor::print_lines(&lines),
+            "a" => editor::append_line(&mut lines),
+            "d" => editor::delete_line(&mut lines),
+            _ => println!("Invalid command"),
+
+        }
+    }
+
+    if let Err(err) = fs::write(filename, lines.join("\n")) {
+        eprintln!("Failed to save file: {}", err);
     }
 }
